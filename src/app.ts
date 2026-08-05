@@ -11,6 +11,17 @@ const app = express();
 app.use(express.json());
 
 
+app.get("/", (_req, res) => {
+  res.json({
+    service: "secure-payment-webhook-example",
+
+    docs: "See README.md for API reference",
+
+    endpoints: ["/health", "/webhook"],
+  });
+});
+
+
 app.use("/webhook", webhookRoutes);
 
 
