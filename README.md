@@ -1,5 +1,7 @@
 # Secure Payment Webhook Example
 
+[![Tests](https://github.com/3278mediadotcom/secure-payment-webhook-example/actions/workflows/test.yml/badge.svg)](https://github.com/3278mediadotcom/secure-payment-webhook-example/actions/workflows/test.yml)
+
 A production-style TypeScript webhook processing service demonstrating secure event handling patterns used in payment and SaaS platforms.
 
 ## Features
@@ -59,6 +61,44 @@ src/
 └── server.ts        # Server entry point + graceful shutdown
 ```
 
+## Quick Demo
+
+See the full flow in one command:
+
+```bash
+npm run demo
+```
+
+This starts the server, generates a signed webhook, sends it, and shows the response:
+
+```
+=== Secure Payment Webhook Demo ===
+
+Starting server...
+✓ Server started
+
+Sending webhook...
+
+Payload:
+{
+  "id": "evt_demo_123",
+  "type": "payment.completed",
+  ...
+}
+
+Signature:
+a83f9d8c...
+
+Response:
+{
+  "success": true,
+  "eventId": "evt_demo_123",
+  "message": "Event processed"
+}
+
+✓ Demo complete
+```
+
 ## Getting Started
 
 ### Prerequisites
@@ -100,6 +140,16 @@ npm test
 npm run build
 npm start
 ```
+
+## Example Payloads
+
+Ready-to-use webhook payloads are in the [`examples/`](examples/) directory:
+
+| File | Event Type |
+|---|---|
+| [`payment-completed.json`](examples/payment-completed.json) | `payment.completed` |
+| [`payment-refunded.json`](examples/payment-refunded.json) | `payment.refunded` |
+| [`payment-failed.json`](examples/payment-failed.json) | `payment.failed` |
 
 ## API Reference
 
@@ -181,6 +231,16 @@ Send this in the `X-Webhook-Signature` header.
 - **Validate before verifying** — malformed payloads rejected early
 - **Track processed event IDs** — prevents duplicate side effects
 - **In production**, replace the in-memory idempotency store with Redis or a database
+
+## CI/CD
+
+GitHub Actions runs on every push and pull request:
+
+- `npm install`
+- `npm run build`
+- `npm test`
+
+See [`.github/workflows/test.yml`](.github/workflows/test.yml).
 
 ## Tech Stack
 

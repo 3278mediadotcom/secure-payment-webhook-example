@@ -1,0 +1,10 @@
+{
+  "id": "223e4567-e89b-12d3-a456-426614174001",
+  "type": "payment.refunded",
+  "createdAt": "2026-08-05T12:30:00Z",
+  "data": {
+    "transactionId": "txn_456",
+    "amount": 1999,
+    "currency": "USD"
+  }
+}

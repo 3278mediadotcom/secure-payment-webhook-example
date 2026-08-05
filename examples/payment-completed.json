@@ -1,0 +1,10 @@
+{
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "type": "payment.completed",
+  "createdAt": "2026-08-05T12:00:00Z",
+  "data": {
+    "transactionId": "txn_123",
+    "amount": 4999,
+    "currency": "USD"
+  }
+}

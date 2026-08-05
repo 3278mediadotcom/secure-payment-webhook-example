@@ -1,0 +1,10 @@
+{
+  "id": "323e4567-e89b-12d3-a456-426614174002",
+  "type": "payment.failed",
+  "createdAt": "2026-08-05T13:00:00Z",
+  "data": {
+    "transactionId": "txn_789",
+    "amount": 2999,
+    "currency": "USD"
+  }
+}
