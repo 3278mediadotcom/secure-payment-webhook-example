@@ -18,32 +18,15 @@ A production-style TypeScript webhook processing service demonstrating secure ev
 
 ## Architecture
 
-```
-HTTP Request
-    │
-    ▼
-Express App (app.ts)
-    │
-    ▼
-Webhook Route (routes/webhook.routes.ts)
-    │
-    ├── Zod validation (validation/webhook.schema.ts)
-    │
-    ▼
-Signature Verification (middleware/verifySignature.ts)
-    │   HMAC-SHA256 + timestamp check
-    ▼
-Idempotency Check (middleware/idempotency.ts)
-    │   duplicate event detection
-    ▼
-Controller (controllers/webhook.controller.ts)
-    │
-    ▼
-Service (services/webhook.service.ts)
-    │   event-type routing
-    ▼
-Logger + Response
-```
+![Architecture](docs/architecture.svg)
+
+The request flows through a layered middleware pipeline:
+
+1. **Signature Verification** — HMAC-SHA256 + timestamp check rejects forged or replayed requests
+2. **Replay Protection** — stale timestamps rejected
+3. **Idempotency Layer** — duplicate event IDs safely ignored
+4. **Controller** — HTTP request/response handling
+5. **Service Layer** — event-type routing and business logic
 
 ## Project Structure
 
