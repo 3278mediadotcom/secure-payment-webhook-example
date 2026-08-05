@@ -1,7 +1,7 @@
 {
   "name": "secure-payment-webhook-example",
   "version": "1.0.0",
-  "description": "Production-ready TypeScript example demonstrating secure webhook verification, idempotent event processing, and reliable API design.",
+  "description": "Production-style TypeScript webhook processing service demonstrating secure signature verification, replay protection, idempotent event handling, and scalable API architecture.",
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
@@ -14,7 +14,19 @@
     "type": "git",
     "url": "git+https://github.com/3278mediadotcom/secure-payment-webhook-example.git"
   },
-  "keywords": [],
+  "keywords": [
+    "typescript",
+    "nodejs",
+    "express",
+    "api",
+    "backend",
+    "webhooks",
+    "security",
+    "hmac",
+    "payments",
+    "fintech",
+    "saas"
+  ],
   "author": "",
   "license": "ISC",
   "type": "module",
